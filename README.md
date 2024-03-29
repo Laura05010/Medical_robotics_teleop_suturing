@@ -59,8 +59,8 @@ To navigate the robot to the suturing pad, the surgeon initiates the process by 
 | Key | Command                                                                   |
 | --- | ------------------------------------------------------------------------- |
 | K   | Navigates robot to hover in the position of the suturing pad              |
-| M   | Activates end effector's piercing rotation in the forward direction       |
-| N   | Activates end effector's piercing rotation in the opposite direction of M |
+| M   | Activates end effector's piercing rotation in the forward direction  (clockwise)      |
+| N   | Activates end effector's piercing rotation in the opposite direction of M  (counter-clockwise)|
 
 After successfully piercing the skin, the surgeon can release the needle, maneuver to the opposite side using the precise mode keys, grasp the needle from the red/purple section, and complete the final loop by rotating the end effector with the "N" key.
 
