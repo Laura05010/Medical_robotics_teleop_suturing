@@ -16,6 +16,7 @@ To create the suturing pad, we used a suturing mesh secured with rubber bands on
 ### Needle
 
 We opted for a 12.8cm curved sewing needle for the robot end-effector to facilitate seamless handling and smoother suturing motion. The needle is distinguished by color-coding: green marks the initial grasping point, purple signifies where the user should insert the needle, and red or purple indicates where the needle should be pulled out from the suturing board.
+
 ![Needle Mapping](/writeup_images/needle_map.png)
 
 ### End-effector
