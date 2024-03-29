@@ -6,16 +6,18 @@
 
 Our team (Laura and Puneet) established a Shared Control Robot System for the Franka to be able to make sutures. Based on our research for this project, the Da Vinci Robot is typically used for these kind of applications. Nevertheless, we were inclined to explore the feasibility of utilizing the Franka Emika Robot for this particular application. We believe that this assignment
 will challenge us to make the teleoperation (learned from assignment 1) to be more precise and to use our knowledge (from assignment 2) of placing the robot in specific positions to make the task smoother.
+![suture](/writeup_images/suture.png)
 
 ## Methods
 
 ### Setting up the environment
 
 To create the suturing pad, we used a suturing mesh secured with rubber bands onto a wooden box filled with Jenga blocks to stabilize it. By adding weight to the box with the Jenga blocks, we ensured that the robot wouldn't topple it over in case of a collision. For the needle, we used a plastic stand with a hole where floral foam was inserted to provide cushioning and stability. Plastic brackets were secured on the table surrounding the setup, along with duct tape, to enhance stability in case of robot collisions during implementation of the program and operation. The plastic stand serves as the reference point for needle positioning, while the wooden box acts as the suturing board.
+![environment](/writeup_images/environment.png)
 
 ### Needle
 
-We opted for a 12.8cm curved sewing needle for the robot end-effector to facilitate seamless handling and smoother suturing motion. The needle is distinguished by color-coding: green marks the initial grasping point, purple signifies where the user should insert the needle, and red or purple indicates where the needle should be pulled out from the suturing board.
+We opted for a 15cm curved sewing needle for the robot end-effector to facilitate seamless handling and smoother suturing motion. The needle is distinguished by color-coding: green marks the initial grasping point, purple signifies where the user should insert the needle, and red or purple indicates where the needle should be pulled out from the suturing board.
 
 ![Needle Mapping](/writeup_images/needle_map.png)
 
@@ -26,7 +28,8 @@ In selecting an end effector, our priority was to find grippers that could secur
 Considering that the 3D printed material of the robot gripper is plastic, both the needle and this material exhibit a deficiency in friction which negatively affected the precision of our method. In our initial attempt, we tried to enhance the grippers' functionality by applying painter's tape to provide a cushioning effect. Unfortunately, this approach proved ineffective as the needle would frequently slip out of the grippers.
 
 We then decided to experiment with cutting a sheet of silicone to match the grippers' shape. Although this method increased friction and effectively secured the needle in various positions, we faced challenges when the end effector initiated a twisting motion along one axis on the suturing board. This action caused the needle to slowly rotate around the end effector in a perpendicular axis instead of penetrating the board on the other end. To address this issue, we devised a solution involving a jar opener pad composed of rubber, which gave us more grip due to its textured surface. A
-dditionally, we strategically placed a small magnet between one of the grippers and the rubber material to help us attract the metal of the needle. This combination of materials helped us ensure that the needle remained securely held throughout the positioning and suturing procedures.
+dditionally, we strategically placed a small magnet between one of the grippers and the rubber material to help us attract the metal of the needle. This combination of materials helped us ensure that the needle remained more securely held throughout the positioning and suturing procedures. In instances where the needle began to shift, we could easily make adjustments by switching the gripper to precision mode.
+![Gripper](/writeup_images/gripper.png)
 
 ## System
 
@@ -53,12 +56,15 @@ This allows the surgeon to fine-tune the robot's end effector to exact positions
 
 To navigate the robot to the suturing pad, the surgeon initiates the process by pressing the "K" key and then utilize precision modes to accurately position the needle onto the suturing pad. Once the surgeon is prepared to execute the stitch, they can simply press "M" to activate the end effector's twisting piercing motion.
 
-| Key | Command                                                      |
-| --- | ------------------------------------------------------------ |
-| K   | Navigates robot to hover in the position of the suturing pad |
-| M   | Activates end effector's piercing rotation                   |
+| Key | Command                                                                   |
+| --- | ------------------------------------------------------------------------- |
+| K   | Navigates robot to hover in the position of the suturing pad              |
+| M   | Activates end effector's piercing rotation in the forward direction       |
+| N   | Activates end effector's piercing rotation in the opposite direction of M |
 
-After successfully piercing the skin, the surgeon can release the needle, maneuver to the opposite side using the precise mode keys, grasp the needle from the red/purple section, and complete the final loop by rotating the end effector.
+After successfully piercing the skin, the surgeon can release the needle, maneuver to the opposite side using the precise mode keys, grasp the needle from the red/purple section, and complete the final loop by rotating the end effector with the "N" key.
+
+![keyboard keys](/writeup_images/keyboard.JPG)
 
 **NOTE FOR FUTURE DEVELOPERS**
 
@@ -76,6 +82,20 @@ During the course of the project, our team established several milestones to ens
 4. Position the robot at the needle insertion point by fine-tuning joint values.
 5. Position the robot at the suturing board location by adjusting joint values, and ensure collision avoidance with nearby objects.
 6. Implement a keyboard command to twist the robot's 7th joint for performing skin puncturing and completing the suture loop procedure.
+
+While Laura focused on developing the general and precise modes, Puneet adjusted the joints to position the robot accurately at the needle and suturing board locations. Additionally, we collaborated closely on all tasks, engaging in pair programming to develop the main program and practicing suturing together.
+
+### Testing
+
+**For task 1:** We hit the suturing board box and the plastic stand from different directions to make sure it didn't jump out of place.
+
+**For task 2 and 3:** We made sure to be able to move the robot in all directions and used the operational modes to avoid joint limits being reached
+
+**For task 4:** We adjusted joint values to center the needle within the gripper accurately.
+
+**For task 5:** We fine-tuned joint values to position the needle centrally on the suturing board.
+
+**For task 6:** We executed the motion required for skin puncturing and verified the step size of this action.
 
 ## How to run the program
 
